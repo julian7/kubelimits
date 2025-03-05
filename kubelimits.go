@@ -6,12 +6,12 @@ import (
 
 var ErrScan = errors.New("Scan error")
 
-type Setter struct {
+type setter struct {
 	loggers []func(string)
 }
 
 func Set(loggers ...func(string)) error {
-	s := &Setter{loggers: loggers}
+	s := &setter{loggers: loggers}
 	if err := s.SetMemory(); err != nil {
 		return err
 	}
@@ -19,7 +19,7 @@ func Set(loggers ...func(string)) error {
 	return s.SetCPU()
 }
 
-func (s *Setter) log(msg string) {
+func (s *setter) log(msg string) {
 	for _, logger := range s.loggers {
 		logger(msg)
 	}

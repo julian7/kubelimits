@@ -2,10 +2,10 @@
 
 package kubelimits
 
-func (s *Setter) SetMemory() error {
+func (s *setter) SetMemory() error {
 	return nil
 }
 
-func (s *Setter) SetCPU() error {
+func (s *setter) SetCPU() error {
 	return nil
 }

@@ -15,7 +15,7 @@ import (
 const cpuMaxFilename = "/sys/fs/cgroup/cpu.max"
 const memMaxFilename = "/sys/fs/cgroup/memory.max"
 
-func (s *Setter) SetMemory() error {
+func (s *setter) SetMemory() error {
 	file, err := os.Open(memMaxFilename)
 	if err != nil {
 		return err
@@ -31,7 +31,7 @@ func (s *Setter) SetMemory() error {
 	return nil
 }
 
-func (s *Setter) SetCPU() error {
+func (s *setter) SetCPU() error {
 	file, err := os.Open(cpuMaxFilename)
 	if err != nil {
 		return err
