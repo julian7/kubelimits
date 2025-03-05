@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+No changes so far.
+
+## [v0.1.0]
+
 Added:
 
 * GOMAXPROCS setter based on cgroups2's cpu.max
@@ -14,3 +18,4 @@ Added:
 * MIT license
 
 [Unreleased]: https://github.com/julian7/kubelimits
+[v0.1.0]: https://github.com/julian7/kubelimits/releases/tag/v0.1.0
