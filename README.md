@@ -23,3 +23,9 @@ Call me a reinvent guy, but hear me out:
 - Adding variables to kubernetes is nice, but this should be handled by the application instead.
 - These libraries are nice, but they feel like being seriously overengineered.
 - Probably supporting cgroups v2 only is not going to cause any issues anymore.
+
+## GOMAXPROCS and Golang 1.25
+
+Go 1.25 introduced a [container-aware](https://tip.golang.org/doc/go1.25#container-aware-gomaxprocs) `GOMAXPROCS` feature, which makes this part of this library unnecessary. In fact, this built-in feature is also following the allocated quota, which was not implemented in this library.
+
+Therefore, I recommend upgrading to Go 1.25 (or newer), especially if you'd like to leverage [Dynamic Resource Allocation](https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/) which became beta in Kubernetes v1.32.
