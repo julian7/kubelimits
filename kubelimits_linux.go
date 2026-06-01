@@ -4,18 +4,22 @@ package kubelimits
 
 import (
 	"bufio"
+	"errors"
 	"fmt"
 	"os"
 	"runtime/debug"
 	"strconv"
 )
 
-const cpuMaxFilename = "/sys/fs/cgroup/cpu.max"
 const memMaxFilename = "/sys/fs/cgroup/memory.max"
 
 func (s *setter) SetMemory() error {
 	file, err := os.Open(memMaxFilename)
 	if err != nil {
+		if errors.Is(err, os.ErrNotExist) {
+			s.log("no memory limit set")
+			return nil
+		}
 		return err
 	}
 	defer file.Close()

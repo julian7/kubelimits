@@ -9,7 +9,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 No changes so far.
 
-## [v0.1.0]
+## [v0.3.0] - Jun 1, 2026
+
+Fixed:
+
+* Do not error on missing cpu/memory max cgroup2 file
+
+
+## [v0.2.0] - Aug 14, 2025
+
+Added:
+
+* GOMAXPROCS support in go v1.25
+
+## [v0.1.0] - Mar 5, 2025
 
 Added:
 
@@ -19,3 +32,5 @@ Added:
 
 [Unreleased]: https://github.com/julian7/kubelimits
 [v0.1.0]: https://github.com/julian7/kubelimits/releases/tag/v0.1.0
+[v0.2.0]: https://github.com/julian7/kubelimits/releases/tag/v0.2.0
+[v0.3.0]: https://github.com/julian7/kubelimits/releases/tag/v0.3.0

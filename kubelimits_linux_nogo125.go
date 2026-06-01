@@ -4,15 +4,22 @@ package kubelimits
 
 import (
 	"bufio"
+	"errors"
 	"fmt"
 	"math"
 	"os"
 	"runtime"
 )
 
+const cpuMaxFilename = "/sys/fs/cgroup/cpu.max"
+
 func (s *setter) SetCPU() error {
 	file, err := os.Open(cpuMaxFilename)
 	if err != nil {
+		if errors.Is(err, os.ErrNotExist) {
+			s.log("no cpu limit set")
+			return nil
+		}
 		return err
 	}
 	defer file.Close()
